@@ -1,1 +1,21 @@
-SELECT * FROM Invites;
+1:SELECT * FROM invites;
+2:SELECT noms,statuts from invites,
+3:SELECT COUNT(*) AS total_invités FROM Invités;
+4:SELECT COUNT(*) AS suspects FROM Invités WHERE statut = 'Suspect';
+5:SELECT * FROM Mouvements ORDER BY heure ASC LIMIT 1;
+6:SELECT * FROM Mouvements ORDER BY heure DESC LIMIT 1;
+7:SELECT Objets.nom_objet, rooms.nom AS room
+FROM Objets
+INNER JOIN rooms ON Objets.id_room = rooms.id_room
+ORDER BY rooms.id_room;
+9:SELECT id_invite, COUNT(*) AS total_mouvements
+FROM Mouvements
+GROUP BY id_invite;
+
+10:SELECT Invités.nom
+FROM Invités
+INNER JOIN Mouvements ON Invités.id_invite = Mouvements.id_invite
+INNER JOIN rooms ON Mouvements.id_room = rooms.id_room
+WHERE rooms.nom = 'Salle de Bal';
+
+
